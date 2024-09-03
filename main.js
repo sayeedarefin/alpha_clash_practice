@@ -4,12 +4,15 @@ function play(){
     showElementById('play-Ground');
     console.log('Button CLicked');
 
+    setTextElementValueById('current-Score' , 0);
+    setTextElementValueById('current-Life' , 5);
+
     continueGame();
 }
 
-function continueGame(){
+// function continueGame(){
 
-}
+// }
 
 function getARandomAlphabet() {
     // Step 1: Define a string containing all the lowercase alphabets
@@ -54,6 +57,28 @@ function keyBoardPress(event){
     const targetAlphabet = currentAlphabet.toLowerCase();
 
     console.log(targetAlphabet , playerPressed);
+
+    if(targetAlphabet === playerPressed){
+        console.log("You earned a point");
+        const currentScore = getTextElementValueById('current-Score');
+        const updatedScore = currentScore+1;
+        setTextElementValueById('current-Score' , updatedScore);
+
+        removeBGbyId(targetAlphabet);
+        continueGame();
+    }
+    else{
+        console.log("vul key chaap diyecho vaiya");
+        const currentLife = getTextElementValueById('current-Life');
+        const updatedLife = currentLife-1;
+        setTextElementValueById('current-Life' , updatedLife);
+        
+        if(updatedLife === 0){
+            console.log("Game over");
+
+            gameOver();
+        }
+    }
 }
 document.addEventListener('keyup' , keyBoardPress);
 
@@ -68,4 +93,18 @@ function continueGame(){
     
     //set background color
     addBGbyId(alphabet);
+}
+
+function gameOver(){
+    hideElementById('play-Ground');
+    showElementById('final-Score');
+
+    const lastScore = getTextElementValueById('current-Score');
+    setTextElementValueById('last-Score' , lastScore);
+
+    const currentAlphabet = getElementTextById('current-Alphabet');
+
+    console.log(currentAlphabet);
+
+    removeBGbyId(currentAlphabet);
 }

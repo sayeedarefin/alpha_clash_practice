@@ -71,18 +71,25 @@
                     <kbd id="/" class="kbd">/</kbd>
                 </div>
             </div>
-        <div class="flex justify-around w-full max-w-md">
-            <button class="btn btn-secondary rounded-full bg-purple-700 px-4 py-2 text-white flex items-center gap-2">Life <img src="images/monetization_on.svg" alt="">3</button> 
-            <button class="btn btn-secondary rounded-full bg-purple-700 px-4 py-2 text-white flex items-center gap-2">Score <img src="images/Group 23.svg" alt="">0</button>
-            
-        </div>
+            <div class="flex justify-around w-full max-w-md">
+                <button class="btn rounded-full bg-purple-700 px-4 py-2 text-white flex items-center gap-2">
+                    Life
+                    <img src="images/Group 23.svg" alt="">
+                    <span id="current-Life">5</span>
+                </button>
+                <button class="btn rounded-full bg-purple-700 px-4 py-2 text-white flex items-center gap-2">
+                    Score
+                    <img src="images/monetization_on.svg" alt="">
+                    <span id="current-Score">0</span>
+                </button>
+            </div>
         </div>
      </section>
 
      <section id="final-Score" class="flex flex justify-center items-center min-h-screen hidden">
         <div class=" text-white text-center space-y-6 rounded-lg p-6 bg-[#FFFFFF33]">
             <p>Game Over</p>
-        <p class="text-8xl font-bold"> Score : 12</p>
+        <p class="text-8xl font-bold"> Score : <span id="last-Score">12</span></p>
         <button onclick="play()" class="btn bg-white text-black btn-accent">Play Again</button>
         <p>Practice makes a man perfect</p>
         </div>
